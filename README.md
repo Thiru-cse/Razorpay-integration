@@ -13,8 +13,6 @@ This project demonstrates how to integrate Razorpay's payment gateway with a MER
 8. [API Endpoints](#api-endpoints)
 9. [Frontend Implementation](#frontend-implementation)
 10. [Screenshots](#screenshots)
-11. [Contributing](#contributing)
-12. [License](#license)
 
 ---
 
@@ -55,7 +53,7 @@ Ensure you have the following installed on your system:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/razorpay-mern-integration.git
+   git clone https://github.com/Thiru-cse/Razorpay-integration.git
    cd razorpay-mern-integration
    
 2. Install dependencies for both the backend and frontend:
