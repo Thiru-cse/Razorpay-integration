@@ -66,8 +66,20 @@ Ensure you have the following installed on your system:
    npm install
 
 3. Create a .env file in the backend folder and add your Razorpay credentials:
+```
+RAZORPAY_KEY_ID=your_razorpay_key_id
+RAZORPAY_KEY_SECRET=your_razorpay_key_secret
+```
 4. Run the backend server:
+```
+cd backend
+npm start
+```
 5. Run the frontend React app:
+```
+cd ../frontend
+npm start
+```
 
 ## Environment Variables
 Make sure you create a .env file in the backend/ folder with the following details:
@@ -139,7 +151,7 @@ The payment form in the frontend handles the integration with Razorpay.
 const handlePayment = async () => {
   const { data: order } = await axios.post("/api/payment/createOrder", { amount: 500 });
   const options = {
-    key: process.env.REACT_APP_RAZORPAY_KEY_ID,
+    key: env_variable.razorpay_keyID,
     order_id: order.id,
     amount: order.amount,
     currency: order.currency,
