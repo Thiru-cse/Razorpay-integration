@@ -11,8 +11,9 @@ const razorpayInstance = new Razorpay({
 });
 
 // Log to check if keys are loaded correctly
-console.log("Razorpay Key ID: ", process.env.RAZORPAY_KEY_ID);   // Should print the key ID
-console.log("Razorpay Key Secret: ", process.env.RAZORPAY_KEY_SECRET); // Should print the key secret
+//console.log("Razorpay Key ID: ", process.env.RAZORPAY_KEY_ID);   // Should print the key ID
+//console.log("Razorpay Key Secret: ", process.env.RAZORPAY_KEY_SECRET); // Should print the key secret
+
 export const createOrder = async (req, res) => {
     const { amount, currency } = req.body;
   
