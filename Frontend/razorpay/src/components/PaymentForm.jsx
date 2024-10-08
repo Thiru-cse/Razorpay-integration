@@ -1,16 +1,15 @@
 import React from "react";
 import axios from "../api/paymentApi";
+import { env_variable } from "../config/env";
 
 const PaymentForm = () => {
   const handlePayment = async () => {
-    // Request order creation from the backend
     const { data: order } = await axios.post("/payment/createOrder", {
-      amount: 500, // Replace with the actual amount
+      amount: 500,
       currency: "INR",
     });
-
     const options = {
-      key: process.env.REACT_APP_RAZORPAY_KEY_ID,
+      key: env_variable.razorpay_keyID,
       amount: order.amount,
       currency: order.currency,
       name: "Your App Name",
@@ -24,8 +23,10 @@ const PaymentForm = () => {
         };
         console.log(options);
 
-        // Verify the payment on the backend
-        const verify = await axios.post("/payment/verifyPayment", paymentResult);
+        const verify = await axios.post(
+          "/payment/verifyPayment",
+          paymentResult
+        );
         if (verify.data.message === "Payment verified successfully") {
           alert("Payment successful!");
         } else {
