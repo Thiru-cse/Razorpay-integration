@@ -168,4 +168,4 @@ const handlePayment = async () => {
 ![Design](https://github.com/Thiru-cse/Fullstack-Developer/blob/main/My-Project-Screenshots/payment%20page.png)
 ![Design](https://github.com/Thiru-cse/Fullstack-Developer/blob/main/My-Project-Screenshots/Payment%20success.png)
 
-<h2 align="center">***Happy Learning!***</h2>
+<h2 align="center"> Happy Learning! </h2>
