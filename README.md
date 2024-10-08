@@ -72,10 +72,85 @@ Ensure you have the following installed on your system:
 5. Run the frontend React app:
 
 ## Environment Variables
+Make sure you create a .env file in the backend/ folder with the following details:
+```
+RAZORPAY_KEY_ID=your_razorpay_key_id
+RAZORPAY_KEY_SECRET=your_razorpay_key_secret
+```
+Note: Do not share your secret key publicly.
 
 ## Usage
+Running the Application
+Once both the backend and frontend are running, you can open the app in your browser at
+`http://localhost:3000`
+
+**Payment Process**
+- Users can click on the "Pay Now" button, which will trigger the Razorpay checkout.
+- Upon successful payment, details will be logged in the browser’s console and backend logs.
 
 ## Folder Structure
 
-## API Endpoints
+```
+razorpay-mern-integration/
+├── backend/
+│   ├── config/
+│   │   └── razorpay.js   # Razorpay instance configuration
+│   ├── controllers/
+│   │   └── paymentController.js   # Handles order creation and payment verification
+│   ├── routes/
+│   │   └── paymentRoutes.js   # Payment-related API routes
+│   ├── server.js   # Entry point for backend
+│   └── .env   # Environment variables (Razorpay Key ID & Secret)
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   │   └── PaymentForm.jsx   # React component to handle Razorpay checkout
+│   │   └── App.js   # Main application component
+│   ├── public/
+│   │   └── index.html   # Razorpay script is added here
+│   └── package.json   # Frontend dependencies
+├── README.md   # Project documentation
+└── .gitignore   # Ignoring unnecessary files
+```
 
+## API Endpoints
+**POST** ```/api/payment/createOrder```
+- Description: Creates a Razorpay order and returns the order ID.
+- Request Body:
+```
+{
+  "amount": 500,
+  "currency": "INR"
+}
+```
+
+- Response
+```
+{
+  "id": "order_id",
+  "amount": 500,
+  "currency": "INR"
+}
+```
+
+## Frontend Implementation
+The payment form in the frontend handles the integration with Razorpay.
+
+- **PaymentForm.jsx**: React component to open the Razorpay checkout modal and handle payment success.
+```
+const handlePayment = async () => {
+  const { data: order } = await axios.post("/api/payment/createOrder", { amount: 500 });
+  const options = {
+    key: process.env.REACT_APP_RAZORPAY_KEY_ID,
+    order_id: order.id,
+    amount: order.amount,
+    currency: order.currency,
+    handler: function (response) {
+      console.log("Payment Successful", response);
+    }
+  };
+  const razorpay = new window.Razorpay(options);
+  razorpay.open();
+};
+```
+## Screenshots
