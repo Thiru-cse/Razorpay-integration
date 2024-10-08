@@ -165,5 +165,7 @@ const handlePayment = async () => {
 ```
 ## Screenshots
 ![Design](https://github.com/Thiru-cse/Fullstack-Developer/blob/main/My-Project-Screenshots/image.png)
+![Design](https://github.com/Thiru-cse/Fullstack-Developer/blob/main/My-Project-Screenshots/payment%20page.png)
+![Design](https://github.com/Thiru-cse/Fullstack-Developer/blob/main/My-Project-Screenshots/Payment%20success.png)
 
 ***Happy Learning!***
