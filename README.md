@@ -68,6 +68,14 @@ Ensure you have the following installed on your system:
    npm install
 
 3. Create a .env file in the backend folder and add your Razorpay credentials:
-```bash
-RAZORPAY_KEY_ID=your_razorpay_key_id
-RAZORPAY_KEY_SECRET=your_razorpay_key_secret
+4. Run the backend server:
+5. Run the frontend React app:
+
+## Environment Variables
+
+## Usage
+
+## Folder Structure
+
+## API Endpoints
+
